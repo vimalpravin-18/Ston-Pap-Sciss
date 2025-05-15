@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let playgame = confirm("Are you ready to play the game?");
+
+        if (playgame) {
+            let playerchoice = prompt("Choose: rock, paper, or scissor");
+
+        if (playerchoice) {
+            let playerone = playerchoice.trim().toLowerCase();
+
+        if (["rock", "paper", "scissor"].includes(playerone)) {
+            let computerchoice = Math.floor(Math.random() * 3) + 1;
+            let computer = computerchoice === 1 ? "rock" : 
+                           computerchoice === 2 ? "paper" : 
+                           "scissor";
+
+        let result = "";
+
+        if (playerone === computer) {
+             result = "Match tie!";
+        } 
+
+        else if (
+        (playerone === "rock" && computer === "paper") ||
+        (playerone === "paper" && computer === "scissor") ||
+        (playerone === "scissor" && computer === "rock")
+        )  {
+            result = `playerone: ${playerone}\ncomputer: ${computer}\nComputer wins!`;
+        } 
+
+      else {
+            result = `playerone: ${playerone}\ncomputer: ${computer}\nPlayer wins!`;
+      }
+
+      alert(result);
+
+            let playagain = confirm("Do you want to play again?");
+            playagain ? location.reload() : alert("OK, thanks for playing!");
+      
+    } 
+      else {
+            alert("Invalid choice! Please enter rock, paper, or scissor.");
+    }
+  }
+  
+      else {
+    alert("You canceled or left the input empty.");
+  }
+} 
+      else {
+  alert("OK, maybe next time.");
+}
+
+</script>
+</body>
+</html>
